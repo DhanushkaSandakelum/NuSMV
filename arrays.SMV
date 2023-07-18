@@ -1,0 +1,10 @@
+MODULE main
+VAR
+    x: array 0..10 of boolean; -- array of 11 elements
+    y: array 2..4 of 0..10;
+    z: array 0..10 of array 0..5 of {red, green, orange};
+
+ASSIGN
+    init(x[5]):= TRUE;
+    init(y[2]):= {0, 2, 4, 6, 8, 10}; -- any value in the set
+    init(z[3][2]):= {green, orange};
