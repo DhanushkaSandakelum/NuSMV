@@ -1,0 +1,9 @@
+MODULE bit-adder(in1, in2, cin)
+
+VAR
+    sum: boolean;
+    cout: boolean;
+
+ASSIGN
+    next(sum) := (in1 xor in2) xor cin;
+    next(cout) := (in1 & in2) | ((in1 | in2) & cin);

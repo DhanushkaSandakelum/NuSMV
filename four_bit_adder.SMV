@@ -1,0 +1,14 @@
+MODULE adder(in1, in2)
+
+VAR
+    bit[0] := bit-adder(in1[0], in2[0], 0);
+    bit[1] := bit-adder(in1[1], in2[1], bit[0].cout);
+    bit[2] := bit-adder(in1[2], in2[2], bit[1].cout);
+    bit[3] := bit-adder(in1[3], in2[3], bit[2].cout);
+
+DEFINE
+    sum[0] := bit[0].sum;
+    sum[1] := bit[1].sum;
+    sum[2] := bit[2].sum;
+    sum[3] := bit[3].sum;
+    overflow := bit[3].cout;

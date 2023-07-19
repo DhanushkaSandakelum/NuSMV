@@ -1,0 +1,17 @@
+MODULE main
+
+VAR
+    in1: array 0..3 of boolean;
+    in2: array 0..3 of boolean;
+    a: adder(in1, in2);
+
+ASSIGN
+    next(in1[0]) := in1[0]; next(in1[1]) := in1[1];
+    next(in1[2]) := in1[2]; next(in1[3]) := in1[3];
+    next(in1[0]) := in1[0]; next(in1[1]) := in1[1];
+    next(in1[2]) := in1[2]; next(in1[3]) := in1[3];
+
+DEFINE
+    op1 := toint(in1[0]) + 2*toint(in1[1]) + 4*toint(in1[2]) + 8*toint(in1[3]);
+    op2 := toint(in2[0]) + 2*toint(in2[1]) + 4*toint(in2[2]) + 8*toint(in2[3]);
+    sum := toint(a.sum[0]) + 2*toint(a.sum[1]) + 4*toint(a.sum[2]) + 8*toint(a.sum[3]) + 16*toint(a.overflow);

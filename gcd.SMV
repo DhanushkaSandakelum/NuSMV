@@ -1,0 +1,30 @@
+MODULE main()
+
+VAR
+    a: 0..100;
+    b: 0..100;
+    pc: {11, 12, 13, 14, 15};
+
+ASSIGN
+    init(pc) := 11;
+    next(pc) :=
+        case
+            pc = l1 & a!=b: 12;
+            pc = l1 & a=b: 15;
+            pc = 12 & a>b: 13;
+            pc = 12 & a<=b: 14;
+            pc = 13 | pc = 14: 11;
+            pc = 15: 15;
+        esac;
+
+    next(a) :=
+        case
+            pc = 13: a-b;
+                TRUE : a;
+        esac;
+
+    next(b) :=
+        case
+            pc = 14: b-a;
+                TRUE : b;
+        esac;

@@ -1,5 +1,5 @@
 nusmv -int
-read_model -i normal_asignments.SMV
+read_model -i simple_mutual_exclusion.SMV
 flatten_hierarchy
 encode_variables
 build_model
