@@ -1,0 +1,17 @@
+MODULE main
+VAR
+    x: boolean;
+    y: boolean;
+    q1: nand(x, q2.out);
+    q2: nand(q1.out, y);
+DEFINE
+    fout := q1.out xor q2.out;
+
+
+MODULE nand(in1, in2)
+VAR
+    out: boolean;
+ASSIGN
+    -- UNIT DELAY
+    init(out) := TRUE;
+    next(out) := !(in1 & in2);

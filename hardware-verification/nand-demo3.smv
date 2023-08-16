@@ -1,0 +1,14 @@
+MODULE main
+VAR
+    input1: boolean;
+    input2: boolean;
+    q: nand(input1, input2); 
+
+
+MODULE nand(in1, in2) 
+VAR
+    out: boolean;
+ASSIGN
+    -- UNIT DELAY
+    init(out) := TRUE;
+    next(out) := !(in1 & in2);
